@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap');
+
+:root {
+    --bg-dark: #08080a;
+    --card-bg: #111116;
+    --border-card: #22222e;
+    --ordem-gold: #ffb400;
+    --ordem-gold-glow: rgba(255, 180, 0, 0.25);
+    --sangue-red: #ff2a42;
+    --sangue-glow: rgba(255, 42, 66, 0.3);
+    --active-border: #00ff88;
+    --text-light: #f0f0f5;
+    --text-muted: #8a8a9e;
+}
+
+body {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(255, 180, 0, 0.05) 0%, transparent 70%),
+        linear-gradient(to bottom, #08080a, #0d0d12);
+    color: var(--text-light);
+    font-family: 'Rajdhani', Arial, sans-serif;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 620px;
+}
+
+h1 { 
+    text-align: center; 
+    color: var(--ordem-gold);
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 12px var(--ordem-gold-glow);
+    margin-bottom: 20px;
+}
+
+/* FORMULÁRIO E CONTROLES (ALINHAMENTO CORRIGIDO) */
+.painel-input, .controles-batalha {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.painel-input input {
+    flex: 2 1 110px;
+}
+
+input {
+    background: #16161e;
+    border: 1px solid var(--border-card);
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 3px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+    border-color: var(--ordem-gold);
+    box-shadow: 0 0 8px var(--ordem-gold-glow);
+}
+
+/* PAINEL DE RODADAS E TURNOS */
+.painel-rodada {
+    background: #14141c;
+    border: 1px solid var(--ordem-gold);
+    box-shadow: 0 0 10px var(--ordem-gold-glow);
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    color: var(--ordem-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* REGRA ÚNICA DE BOTÕES */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    transition: transform 0.15s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.btn-add { 
+    flex: 1 1 120px;
+    background: var(--ordem-gold); 
+    color: #000; 
+    box-shadow: 0 0 10px var(--ordem-gold-glow);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-combate { 
+    background: #1c1c26; 
+    color: #fff; 
+    border: 1px solid #2d2d3d;
+    flex: 1; 
+}
+
+/* CARD DO COMBATENTE */
+.card-combatente {
+    background: var(--card-bg);
+    padding: 14px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border-card);
+    border-left: 4px solid var(--text-muted);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card-combatente.ativo {
+    border-color: var(--active-border);
+    border-left: 4px solid var(--active-border);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.15);
+    background: #14181f;
+}
+
+.combatente-info { flex: 1; }
+
+.combatente-info strong {
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+}
+
+.subtexto-ini { 
+    color: var(--text-muted); 
+    font-size: 0.9em; 
+    font-weight: 600;
+}
+
+/* PAINEL DE HP E DANO */
+.hp-area { 
+    text-align: right; 
+    margin-right: 12px; 
+}
+
+.hp-display { 
+    font-weight: 700; 
+    font-size: 1.1rem;
+    margin-bottom: 4px; 
+    letter-spacing: 1px;
+}
+
+.hp-zero { 
+    color: var(--sangue-red); 
+    text-shadow: 0 0 8px var(--sangue-glow);
+}
+
+.hp-acoes {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 8px 0;
+}
+
+.input-dano {
+    background: #09090d !important;
+    border-color: #2a2a38 !important;
+    width: 50px !important;
+    padding: 4px 6px !important;
+    text-align: center;
+}
+
+.btn-dano { 
+    background: var(--sangue-red); 
+    color: #000; 
+    box-shadow: 0 0 8px var(--sangue-glow);
+}
+
+.btn-cura { 
+    background: var(--active-border); 
+    color: #000; 
+    box-shadow: 0 0 8px rgba(0, 255, 136, 0.2);
+}
+
+/* BOTÃO DE REMOVER */
+.btn-remover {
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 6px;
+    opacity: 0.4;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn-remover:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* CONDIÇÕES E STATUS PARANORMAIS */
+.condicoes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 8px;
+    margin-bottom: 6px;
+}
+
+.badge-condicao {
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: #251215;
+    color: #ff8080;
+    border: 1px solid var(--sangue-red);
+    cursor: pointer;
+    user-select: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.badge-condicao:hover {
+    background: var(--sangue-red);
+    color: #000;
+}
+
+.add-condicao-box {
+    display: flex;
+    gap: 4px;
+    margin-top: 6px;
+    max-width: 200px;
+}
+
+.input-condicao {
+    padding: 3px 6px !important;
+    font-size: 0.85rem;
+    height: 26px;
+}
+
+.btn-add-condicao {
+    padding: 0 8px !important;
+    background: #1c1c26;
+    border: 1px solid #2d2d3d;
+    color: var(--ordem-gold);
+    font-size: 0.9rem;
+    height: 26px;
+}
+
+/* BADGES DE MORTE E SALVO */
+.badge-morrendo {
+    background: #3b0d13;
+    color: #ff6b6b;
+    border: 1px solid var(--sangue-red);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 4px;
+    box-shadow: 0 0 6px var(--sangue-glow);
+}
+
+.badge-morte {
+    background: #000;
+    color: var(--sangue-red);
+    border: 1px solid var(--sangue-red);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.badge-salvo {
+    background: #0d2b1d;
+    color: var(--active-border);
+    border: 1px solid var(--active-border);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 4px;
+}
